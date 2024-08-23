@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
-{
+{   
     private void OnCollisionEnter(Collision other) 
     {
         switch (other.gameObject.tag)
@@ -16,8 +17,15 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Why did you pick me up, I'm not in this game");
                 break;
             default:
-                Debug.Log("You crashed dummy");
+                ReloadLevel();
                 break;
         }
+
+        void ReloadLevel()
+        {
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentScene);
+        }
+
     }
 }
