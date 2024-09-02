@@ -39,6 +39,7 @@ public class CollisionHandler : MonoBehaviour
     {
         // todo add sfx and particles
         isControllable = false;
+        audioSource.Stop();
         audioSource.PlayOneShot(success);
         GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel", levelLoadDelay);
@@ -48,6 +49,7 @@ public class CollisionHandler : MonoBehaviour
     {
         // todo add sfx and particles
         isControllable = false;
+        audioSource.Stop();
         audioSource.PlayOneShot(crash);
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", levelLoadDelay);
